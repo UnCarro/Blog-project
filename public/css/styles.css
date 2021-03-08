@@ -33,3 +33,11 @@
 	font-size: 12px;
   color: #fff;
 }
+
+/*.shorting{
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 13ch;
+}*/

@@ -27,24 +27,18 @@ app.get("/", function (req, res) {
   res.render("home", {
     homeStarting: homeStartingContent,
     post: posts,
+    // postLink: _.lowerCase(posts),
   });
 });
 
 app.get("/posts/:postName", function (req, res) {
-  let requestedTitle = req.params.postName;
+  const requestedTitle = _.lowerCase(req.params.postName);
   posts.forEach(function (post) {
-    const storedTitle = post.title;
-    const lRequestedTitle = _.toLower(requestedTitle);
-    const lStoredTitle = _.toLower(storedTitle);
-    if (lRequestedTitle === lStoredTitle) {
-      console.log("Match found");
-    } else {
-      console.log("Not a match");
+    const storedTitle = _.lowerCase(post.title);
+    if (requestedTitle === storedTitle) {
+      res.render("post", { post: posts[posts.indexOf(post)] });
     }
-    console.log(posts);
   });
-
-  res.render("post", { post: posts });
 });
 
 app.get("/contact", function (req, res) {
