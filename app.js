@@ -1,4 +1,4 @@
-//Requirir módulos de Node.js
+//Requirir módulos de Node
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
